@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import './evento.css';
 //commento
-function Evento() {
+const Evento = ({data, onFormDataChange, onFormSubmit}) => {
   const [modalVisible, setModalVisible] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    onFormSubmit(data)
+  }
 
   useEffect(() => {
     const modal = document.getElementById("myModal");
@@ -29,6 +34,7 @@ function Evento() {
       window.removeEventListener('click', () => {});
     };
   }, []);
+  document.getElementById("form-id")
 
   return (
     <div>
@@ -39,15 +45,16 @@ function Evento() {
             <h2> Aggiungi Evento </h2>
             <p> qui metteremo il form </p>
             
-            <form>
+            <form onSubmit={handleSubmit}>
                 <div>
                 <label for="titolo"> Titolo evento</label>
-                <input type='text' name='titolo'/>
+                <input type='text' name='titolo' id='titolo'/>
                 </div>
                 <div>
                 <label for="data"> Data evento</label>
-                <input type="date" name="data" />
+                <input type="date" name="data" value={data} onChange={(e) => onFormDataChange(e.target.value)}/>
                 </div>
+                <button type="submit">Submit</button>
             </form>
 
         </div>

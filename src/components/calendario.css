@@ -43,7 +43,21 @@
     height: 60px;
     font-size: 1.2rem;
     border-radius: 20%;
-    background-color: #ffffff;
+    border: 1px solid #ddd;
+  }
+
+  .red{
+    height: 60px;
+    font-size: 1.2rem;
+    border-radius: 20%;
+    background-color: #c13636;
+  }
+
+  .empty{
+    height: 60px;
+    font-size: 1.2rem;
+    border-radius: 20%;
+
   }
   
   .calendar-day.empty {
